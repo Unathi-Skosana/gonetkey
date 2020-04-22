@@ -2,19 +2,28 @@ package gonetkey
 
 import (
 	"encoding/base64"
+	"fmt"
 	"log"
 	"os"
+	"os/signal"
+	"strconv"
+	"strings"
+	"syscall"
+	"time"
 
 	"github.com/go-ini/ini"
 	"github.com/kolo/xmlrpc"
 	"github.com/mkideal/cli"
-	"golang.org/x/crypto/ssh/terminal"
 )
 
+type fn func(int)
+
 type argT struct {
-	User    string `cli:"user"   usage:"Student Number / Username"`
-	Config  string `cli:"config" usage:"Loads username/password from file"`
-	Retries string `cli:"retries" usage:"Number of connection retries (default=1)" dft:"1"`
+	cli.Helper
+	User     string `cli:"user"   usage:"Student number / Username"`
+	Password string `pw:"p,password" usage:"Password" prompt:"Password"`
+	Config   string `cli:"config" usage:"Loads username and/or password from file"`
+	Retries  string `cli:"retries" usage:"Number of connection retries (default=1)" dft:"1"`
 }
 
 // InetKey - Comment
@@ -41,36 +50,68 @@ type reply struct {
 }
 
 const (
-	defaultFirewallURL = "maties2.sun.ac.za:443/RTAD4-RPC3"
-	reconnectionDelay  = 60 * 10
+	defaultFirewallURL = "https://maties2.sun.ac.za:443/RTAD4-RPC3"
+	reconnectionDelay  = 10
 )
+
+func accountInfo(r *reply) {
+	code := r.Code
+	message := r.Message
+	usage := r.Usage
+	bytes := r.Bytes
+
+	if code != 0 {
+		if strings.Contains(message, "rejected") || strings.Contains(message, "password") {
+			log.Fatal(message)
+		}
+	}
+	log.Println(message)
+	log.Printf("Monthly usage: R%0.2f\n", usage)
+	log.Printf("Monthly bytes: %d MB", bytes/1024.0/1024.0)
+}
 
 // Initialise - comment
 func Initialise(username string, password string) InetKey {
 	client, err := xmlrpc.NewClient(defaultFirewallURL, nil)
 
 	if err != nil {
-		log.Fatal("Connection error : ", err)
+		log.Fatal("Failed to initialize client: ", err)
 	}
-
-	defer client.Close()
 
 	return InetKey{UserName: username, Password: password, FirewallStatus: false, Client: client}
 }
 
 // OpenConnection - Comment
-func (s InetKey) OpenConnection() {
+func (s InetKey) OpenConnection() error {
+	var err error
+
 	log.Println("Opening connection...")
-	s.Response = s.invoke("rtad4inetkey_api_open2", "any", 0)
+	s.Response, err = s.invoke("rtad4inetkey_api_open2", "any", 0)
+
+	if err != nil {
+		return err
+	}
+
+	accountInfo(s.Response)
 	setConnectionStatus(true)
+	return nil
 
 }
 
 // CloseConnection - Comment
-func (s InetKey) CloseConnection() {
+func (s InetKey) CloseConnection() error {
+	var err error
+
 	log.Println("Closing connection...")
-	s.Response = s.invoke("rtad4inetkey_api_close2", "any", 1)
+	s.Response, err = s.invoke("rtad4inetkey_api_close2", "any", 1)
+
+	if err != nil {
+		return err
+	}
+
+	accountInfo(s.Response)
 	setConnectionStatus(false)
+	return nil
 }
 
 func loadUserCredentials(config string) (string, string) {
@@ -114,47 +155,80 @@ func setConnectionStatus(status bool) {
 	}
 }
 
-func (s InetKey) invoke(funcName string, platform string, keepAlive int) *reply {
+func (s InetKey) invoke(funcName string, platform string, keepAlive int) (*reply, error) {
 	req := &request{UserName: s.UserName, UserPwd: s.Password, Platform: platform, KeepAlive: keepAlive}
 	res := new(reply)
-
 	err := s.Client.Call(funcName, req, res)
 
-	if err != nil {
-		log.Println(err)
+	return res, err
+}
+
+// Validate implements cli.Validator interface
+func (argv *argT) Validate(ctx *cli.Context) error {
+	userName := argv.User
+	password := argv.Password
+	config := argv.Config
+
+	if strings.Compare(config, "") != 0 {
+		userName, password = loadUserCredentials(config)
 	}
 
-	return res
+	if strings.Compare(userName, "") == 0 || strings.Compare(password, "") == 0 {
+		return fmt.Errorf("Username or Password was not provided")
+	}
+
+	return nil
 }
 
 // Run - Document this
 func Run() {
 	os.Exit(cli.Run(new(argT), func(ctx *cli.Context) error {
-		argv := ctx.Argv().(*argT)
-		userName := argv.User
-		password := ""
-		config := argv.Config
-		retries := argv.Retries
+		var conErr error
 
-		if config == "" {
+		argv := ctx.Argv().(*argT)
+
+		// student number
+		userName := argv.User
+
+		// password
+		password := argv.Password
+
+		// optional config file containing password and username
+		config := argv.Config
+
+		// number of retries
+		retries, _ := strconv.Atoi(argv.Retries)
+
+		if strings.Compare(config, "") != 0 {
 			userName, password = loadUserCredentials(config)
 		}
 
-		if userName != "" && password == "" {
-			var err error
+		inetkey := Initialise(userName, password)
+		retries_left := retries
+		c := make(chan os.Signal)
+		signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
-			passwordBytes, err := terminal.ReadPassword(0)
+		go func() {
+			for {
+				if retries_left <= 0 {
+					log.Fatal("Exceeded the retries limit.")
+				}
 
-			if err != nil {
-				log.Fatal("Reading error : ", err)
+				retries_left -= 1
+				conErr = inetkey.OpenConnection()
+				if conErr != nil {
+					log.Println("Connection Failed. Retrying connection.")
+				} else {
+					retries_left = retries
+				}
+
+				time.Sleep(reconnectionDelay * time.Second)
 			}
-			password = string(passwordBytes)
-		}
+		}()
 
-		ctx.String("%s\n", userName)
-		ctx.String("%s\n", password)
-		ctx.String("%s\n", config)
-		ctx.String("%s\n", retries)
+		<-c
+		inetkey.CloseConnection()
+		os.Exit(1)
 		return nil
 	}))
 }
