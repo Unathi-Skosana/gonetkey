@@ -33,8 +33,15 @@ go build
 ./gonetkeyd -h
 ```
 
+## Credits
+* [getlantern/systray](https://github.com/getlantern/systray)
+* [godbus/dbus](https://github.com/godbus/dbus)
+* [mkideal/cli](https://github.com/mkideal/cli)
+* [fyne.io/fyne](https://github.com/fyne-io/fyne)
+
 ## TODO
 
 * [ ]  MacOS build
 * [ ]  Proper bundling of assets
 * [ ]  Makefile ?
+
