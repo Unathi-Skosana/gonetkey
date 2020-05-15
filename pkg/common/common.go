@@ -5,27 +5,36 @@ import (
 	"fmt"
 	"log"
 	"strings"
+	"time"
 
 	"github.com/go-ini/ini"
 	"github.com/kolo/xmlrpc"
 )
+
+const (
+	BusName    = "za.ac.sun.gonetkey"
+	ObjectPath = "/za/ac/sun/gonetkey/system"
+	KillCmd    = "pkill -9 -f \"go.+gonetkey.go\""
+)
+
+const ReconnectionDelay = 10
 
 type InetKey struct {
 	UserName       string
 	Password       string
 	FirewallStatus bool
 	Client         *xmlrpc.Client
-	Response       *reply
+	Response       *Reply
 }
 
-type request struct {
+type Request struct {
 	UserName  string `xmlrpc:"requser"`
 	UserPwd   string `xmlrpc:"reqpwd"`
 	Platform  string `xmlrpc:"platform"`
 	KeepAlive int    `xmlrpc:"keepalive"`
 }
 
-type reply struct {
+type Reply struct {
 	Message string  `xmlrpc:"resultmsg"`
 	Code    int     `xmlrpc:"resultcode"`
 	Bytes   int     `xmlrpc:"monthbytes"`
@@ -34,17 +43,17 @@ type reply struct {
 
 const defaultFirewallURL = "https://maties2.sun.ac.za:443/RTAD4-RPC3"
 
-func NewInetkey(username string, password string) InetKey {
+func NewInetkey(username string, password string) *InetKey {
 	client, err := xmlrpc.NewClient(defaultFirewallURL, nil)
 
 	if err != nil {
 		log.Fatal("Failed to initialize client: ", err)
 	}
 
-	return InetKey{UserName: username, Password: password, FirewallStatus: false, Client: client}
+	return &InetKey{UserName: username, Password: password, FirewallStatus: false, Client: client}
 }
 
-func (s InetKey) OpenConnection() error {
+func (s *InetKey) OpenConnection() error {
 	var err error
 
 	log.Println("Opening connection...")
@@ -60,12 +69,12 @@ func (s InetKey) OpenConnection() error {
 	log.Println(monthlyUsage)
 	log.Println(monthlyBytes)
 
-	setConnectionStatus(true)
+	s.setConnectionStatus(true)
 	return nil
 
 }
 
-func (s InetKey) CloseConnection() error {
+func (s *InetKey) CloseConnection() error {
 	var err error
 
 	log.Println("Closing connection...")
@@ -75,13 +84,13 @@ func (s InetKey) CloseConnection() error {
 		return err
 	}
 
-	setConnectionStatus(false)
+	s.setConnectionStatus(false)
 	return nil
 }
 
-func (s InetKey) Invoke(funcName string, platform string, keepAlive int) (*reply, error) {
-	req := &request{UserName: s.UserName, UserPwd: s.Password, Platform: platform, KeepAlive: keepAlive}
-	res := new(reply)
+func (s *InetKey) Invoke(funcName string, platform string, keepAlive int) (*Reply, error) {
+	req := &Request{UserName: s.UserName, UserPwd: s.Password, Platform: platform, KeepAlive: keepAlive}
+	res := new(Reply)
 	err := s.Client.Call(funcName, req, res)
 
 	return res, err
@@ -119,7 +128,7 @@ func LoadUserCredentials(config string) (string, string) {
 	return username, password
 }
 
-func (s InetKey) AccountInfo() (string, string, string) {
+func (s *InetKey) AccountInfo() (string, string, string) {
 	code := s.Response.Code
 	message := s.Response.Message
 	usage := s.Response.Usage
@@ -137,10 +146,34 @@ func (s InetKey) AccountInfo() (string, string, string) {
 	return message, monthlyUsage, monthlyBytes
 }
 
-func setConnectionStatus(status bool) {
+func (s *InetKey) Run(retries int) {
+	retries_left := retries
+
+	go func() {
+		for {
+			if retries_left <= 0 {
+				log.Fatal("Error : Exceeded the retries limit.")
+			}
+
+			retries_left -= 1
+			conErr := s.OpenConnection()
+			if conErr != nil {
+				log.Println("Connection Failed. Retrying connection.")
+			} else {
+				retries_left = retries
+			}
+
+			time.Sleep(ReconnectionDelay * time.Second)
+		}
+	}()
+}
+
+func (s *InetKey) setConnectionStatus(status bool) {
 	if status {
+		s.FirewallStatus = true
 		log.Println("Connection open. Press <Ctrl> C to close connection")
 	} else {
+		s.FirewallStatus = false
 		log.Println("Connection closed.")
 	}
 }
