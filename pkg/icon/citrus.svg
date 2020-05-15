@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg7162"
+   version="1.1"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="citrus.svg"
+   inkscape:export-filename="/home/lynx/go/src/github.com/unathi-skosana/gonetkey/pkg/icon/citrus.png"
+   inkscape:export-xdpi="38.704762"
+   inkscape:export-ydpi="38.704762">
+  <defs
+     id="defs7164" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="402.04428"
+     inkscape:cy="427.6628"
+     inkscape:document-units="px"
+     inkscape:current-layer="g5271-5"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1049"
+     inkscape:window-x="1919"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:document-rotation="0" />
+  <metadata
+     id="metadata7167">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       transform="matrix(0.26033219,-0.00577268,0.00574252,0.2589721,516.87027,380.26094)"
+       id="g5269-3"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-ydpi="300.66956">
+      <g
+         id="g5271-5"
+         transform="matrix(1.0866776,0,0,1.0866776,-592.47016,-1311.3872)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5273-9"
+           d="m 658.80408,1715.0896 c 0,345.8929 -280.40165,626.2946 -626.294622,626.2946 -345.892958,0 -626.294608,-280.4017 -626.294608,-626.2946 0,-345.893 280.40165,-626.2947 626.294608,-626.2947 345.892972,0 626.294622,280.4017 626.294622,626.2947 z"
+           style="fill:#ffdd55;fill-opacity:0.98039216;fill-rule:nonzero;stroke:#000000;stroke-width:2.12595153;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.98039419;stroke-dasharray:none;stroke-dashoffset:0" />
+        <path
+           style="fill:#fff6d5;fill-opacity:0.98039216;fill-rule:nonzero;stroke:#f7f7a1;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.98039425;stroke-dashoffset:0"
+           d="m 31.125,1164.5938 c -196.56328,-1.0947 -388.63161,112.6891 -481.875,285.375 -83.94037,153.0654 -90.2913,347.4339 -12.96875,504.3437 65.63571,135.7382 188.72002,243.2537 333.58237,287.0389 156.54352,48.374 335.13021,23.3452 470.26138,-69.7576 120.27662,-80.7016 206.81566,-210.7595 233.125,-353.4063 24.06641,-125.4715 3.00971,-259.167 -59.59629,-370.4671 -57.57095,-103.945 -149.2944,-188.715 -258.69874,-236.0045 C 184.8012,1180.5394 108.07554,1163.815 31.125,1164.5938 z"
+           id="path5275-8"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g5277-4"
+         transform="translate(-589.16211,-1194.5621)">
+        <path
+           sodipodi:nodetypes="cscc"
+           inkscape:connector-curvature="0"
+           id="path5279-0"
+           d="m 40.406056,1715.0222 c 0,0 173.300404,-443.3898 157.583804,-480.8326 -47.2679,-112.6095 -383.5233,-42.7985 -379.8173,20.2031 74.0778,214.8361 148.155696,327.4586 222.233496,460.6295 z"
+           style="fill:#ffdd55;fill-opacity:0.98039216;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:transform-center-y="-257.00745"
+           inkscape:transform-center-x="-263.82167"
+           style="fill:#ffdd55;fill-opacity:0.98039216;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 65.744289,1726.4306 c 0,0 451.550231,-150.7645 470.249361,-186.8105 56.23772,-108.4088 -212.67995,-322.0079 -258.70217,-278.8235 -117.59826,194.4549 -156.68051,323.4663 -211.547191,465.634 z"
+           id="path5281-7"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscc" />
+        <path
+           sodipodi:nodetypes="cscc"
+           inkscape:connector-curvature="0"
+           id="path5283-6"
+           d="m 72.967708,1754.4563 c 0,0 394.836702,265.954 434.808092,258.7944 120.21437,-21.5326 125.5276,-364.9173 63.23752,-375.0605 -225.82843,25.3689 -351.91087,73.0614 -498.045612,116.2661 z"
+           style="fill:#ffdd55;fill-opacity:0.98039216;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:transform-center-x="-300.7332"
+           inkscape:transform-center-y="78.012334" />
+        <path
+           inkscape:transform-center-y="292.22781"
+           inkscape:transform-center-x="-207.76343"
+           style="fill:#ffdd55;fill-opacity:0.98039216;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 54.331029,1777.6576 c 0,0 16.698063,475.7612 45.971891,503.904 88.04138,84.6396 369.05972,-112.7686 340.67859,-169.1375 C 287.79656,1944.5658 175.13731,1870.5438 54.331029,1777.6576 z"
+           id="path5285-3"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscc" />
+        <path
+           sodipodi:nodetypes="cscc"
+           inkscape:connector-curvature="0"
+           id="path5287-6"
+           d="m 25.256238,1776.5661 c 0,0 -368.475048,301.4195 -373.140818,341.7581 -14.03222,121.3188 313.246868,225.3846 340.914249,168.662 40.801191,-223.5561 31.475285,-358.0343 32.226569,-510.4201 z"
+           style="fill:#ffdd55;fill-opacity:0.98039216;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:transform-center-x="202.21787"
+           inkscape:transform-center-y="291.95036" />
+        <path
+           inkscape:transform-center-y="116.72704"
+           inkscape:transform-center-x="302.04909"
+           style="fill:#ffdd55;fill-opacity:0.98039216;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 8.700172,1753.8422 c 0,0 -466.434592,-95.2174 -500.651902,-73.3508 -102.90888,65.7641 23.1756,385.2073 84.62448,370.8208 199.0724,-109.6004 297.42601,-201.7846 416.027422,-297.47 z"
+           id="path5289-1"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscc" />
+        <path
+           sodipodi:nodetypes="cscc"
+           inkscape:connector-curvature="0"
+           id="path5291-5"
+           d="m 15.373268,1727.2388 c 0,0 -230.569588,-416.4916 -269.420818,-428.305 -116.84552,-35.5285 -277.83144,267.8273 -226.97966,305.2042 212.6373,80.1714 346.61201,95.0756 496.400478,123.1008 z"
+           style="fill:#ffdd55;fill-opacity:0.98039216;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:transform-center-x="278.549"
+           inkscape:transform-center-y="-236.13655" />
+      </g>
+      <path
+         style="fill:#f7f7f6;fill-opacity:0.98039216;fill-rule:nonzero;stroke:#f7f7a1;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.98039425;stroke-dashoffset:0"
+         d="m -504.62318,610.5143 -26.30691,-3.2077 -29.43681,34.5421 -16.54138,-42.3873 -45.35968,-1.4779 22.8263,-39.3606 -30.55501,-19.239 48.43453,-23.8407 11.53439,-43.8935 33.2944,31.0125 41.50892,-18.3492 3.37059,38.5081 33.36794,27.8709 -37.6437,25.5587 z"
+         id="path5293-4"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccccccccccc" />
+    </g>
+    <g
+       style="fill:#ffdd55"
+       id="g7070"
+       transform="matrix(0.43897335,0,0,0.43897335,38.794968,259.60961)"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-ydpi="300.66956">
+      <path
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31782365;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+         d="m 755.51593,834.27396 c -32.93436,-2.40439 -3.85411,-60.21426 0,-63.16499 11.72431,26.7888 30.51597,56.71285 0,63.16499 z"
+         id="path7072"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         d="m 749.13393,782.95305 c -3.2602,8.69325 -7.08698,19.64146 -2.15625,28.25 5.28242,2.66352 7.41754,-5.63374 5.05804,-11.11161 -0.73479,-7.07221 0.46777,-11.63851 -2.55804,-18.07589 z"
+         id="path7074"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+    <g
+       style="fill:#ffdd55"
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       transform="matrix(0.43897335,0,0,0.43897335,-35.956332,120.20855)"
+       id="g7076">
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path7078"
+         d="m 755.51593,834.27396 c -32.93436,-2.40439 -3.85411,-60.21426 0,-63.16499 11.72431,26.7888 30.51597,56.71285 0,63.16499 z"
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31782365;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path7080"
+         d="m 749.13393,782.95305 c -3.2602,8.69325 -7.08698,19.64146 -2.15625,28.25 5.28242,2.66352 7.41754,-5.63374 5.05804,-11.11161 -0.73479,-7.07221 0.46777,-11.63851 -2.55804,-18.07589 z"
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <path
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       inkscape:transform-center-y="-43.67938"
+       inkscape:transform-center-x="15.506078"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fefefe;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 368.90507,491.71495 c -27.795,-32.65863 -25.8489,-58.72917 -31.338,-86.44667 l -0.9246,0.31509 31.3518,86.47475 0.9107,-0.34319 z"
+       id="path7082"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       inkscape:transform-center-y="29.721787"
+       inkscape:transform-center-x="-23.808469"
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path7084"
+       d="m 387.26677,552.95779 c 39.0915,17.63551 48.4811,42.03417 65.296,64.7421 l 0.701,-0.68019 -65.3204,-64.76156 -0.6765,0.69968 z"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fefefe;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+    <path
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path7086"
+       d="m 397.44997,504.46441 c 3.5203,-42.74059 23.3633,-59.76154 39.1258,-83.21224 l -0.8757,-0.43263 -39.136,83.2418 0.8859,0.40303 z"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fefefe;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+    <path
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       inkscape:transform-center-y="-9.62698"
+       inkscape:transform-center-x="-45.453735"
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path7088"
+       d="m 404.73127,532.07584 c 36.2171,-22.96684 61.7612,-17.40257 89.9734,-18.97091 l -0.183,-0.95949 -90.0031,18.98064 0.2128,0.94973 z"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fefefe;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+    <path
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fefefe;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 369.17967,552.82899 c -0.086,42.88523 -18.5028,61.44048 -32.3368,86.07807 l 0.9076,0.36114 32.3445,-86.10834 -0.9153,-0.33082 z"
+       id="path7090"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:transform-center-x="17.375116"
+       inkscape:transform-center-y="33.893617" />
+    <path
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       inkscape:transform-center-y="13.438097"
+       inkscape:transform-center-x="35.627166"
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path7092"
+       d="m 350.89587,530.6789 c -28.8679,31.71426 -54.9747,33.09189 -81.7717,42.05347 l 0.4298,0.87712 81.7978,-42.07069 -0.456,-0.85987 z"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fefefe;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+    <g
+       style="fill:#ffdd55"
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       transform="matrix(0.62598223,0,0,0.62598223,-87.437032,68.968076)"
+       id="g7100">
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path7102"
+         d="m 755.51593,834.27396 c -32.93436,-2.40439 -3.85411,-60.21426 0,-63.16499 11.72431,26.7888 30.51597,56.71285 0,63.16499 z"
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31782365;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path7104"
+         d="m 749.13393,782.95305 c -3.2602,8.69325 -7.08698,19.64146 -2.15625,28.25 5.28242,2.66352 7.41754,-5.63374 5.05804,-11.11161 -0.73479,-7.07221 0.46777,-11.63851 -2.55804,-18.07589 z"
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fefefe;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 349.07057,504.41155 c -42.865,1.32172 -62.0149,-16.47552 -87.0934,-29.49311 l -0.3312,0.91891 87.1239,29.49988 0.3006,-0.92573 z"
+       id="path7112"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:transform-center-x="34.445966"
+       inkscape:transform-center-y="-16.253383"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-ydpi="300.66956" />
+    <g
+       style="fill:#ffdd55"
+       inkscape:export-ydpi="300.66956"
+       inkscape:export-xdpi="300.66956"
+       inkscape:export-filename="C:\Users\laurie\Pictures\inkscape\Food\orange half.png"
+       transform="matrix(0.43897335,0,0,0.43897335,89.302568,348.50303)"
+       id="g7114">
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path7116"
+         d="m 755.51593,834.27396 c -32.93436,-2.40439 -3.85411,-60.21426 0,-63.16499 11.72431,26.7888 30.51597,56.71285 0,63.16499 z"
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31782365;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path7118"
+         d="m 749.13393,782.95305 c -3.2602,8.69325 -7.08698,19.64146 -2.15625,28.25 5.28242,2.66352 7.41754,-5.63374 5.05804,-11.11161 -0.73479,-7.07221 0.46777,-11.63851 -2.55804,-18.07589 z"
+         style="fill:#ffdd55;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+  </g>
+</svg>
