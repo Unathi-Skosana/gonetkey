@@ -87,6 +87,8 @@ func main() {
 			var i int
 			obj.Call(fmt.Sprintf("%s.GetPID", common.BusName), 0).Store(&i)
 			exec.Command(fmt.Sprintf("kill -9 %d", i))
+		} else {
+			fmt.Println("See usage: gonetkeyd -h")
 		}
 
 		return nil
