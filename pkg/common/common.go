@@ -14,7 +14,6 @@ import (
 const (
 	BusName    = "za.ac.sun.gonetkey"
 	ObjectPath = "/za/ac/sun/gonetkey/system"
-	KillCmd    = "pkill -9 -f \"go.+gonetkey.go\""
 )
 
 const ReconnectionDelay = 10
@@ -53,6 +52,7 @@ func NewInetkey(username string, password string) *InetKey {
 	return &InetKey{UserName: username, Password: password, FirewallStatus: false, Client: client}
 }
 
+// Open firewall connection
 func (s *InetKey) OpenConnection() error {
 	var err error
 
@@ -74,6 +74,7 @@ func (s *InetKey) OpenConnection() error {
 
 }
 
+// Close firewall connection
 func (s *InetKey) CloseConnection() error {
 	var err error
 
@@ -88,6 +89,7 @@ func (s *InetKey) CloseConnection() error {
 	return nil
 }
 
+// Make a method call over the xmlrpc client
 func (s *InetKey) Invoke(funcName string, platform string, keepAlive int) (*Reply, error) {
 	req := &Request{UserName: s.UserName, UserPwd: s.Password, Platform: platform, KeepAlive: keepAlive}
 	res := new(Reply)
@@ -96,6 +98,10 @@ func (s *InetKey) Invoke(funcName string, platform string, keepAlive int) (*Repl
 	return res, err
 }
 
+// Load user credential from a config i.e
+// [config]
+// username: <username>
+// password: <password>
 func LoadUserCredentials(config string) (string, string) {
 	var err error
 	var username string

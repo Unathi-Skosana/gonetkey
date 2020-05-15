@@ -35,7 +35,10 @@ func (d *dialog) Show(app fyne.App) {
 	d.password = widget.NewPasswordEntry()
 	d.password.SetPlaceHolder("Password")
 
+	// content box
 	content := widget.NewVBox(d.username, d.password)
+
+	// append widgets
 	content.Append(widget.NewButton("Connect", func() {
 		app.Quit()
 	}))
@@ -44,10 +47,12 @@ func (d *dialog) Show(app fyne.App) {
 	d.window.Show()
 }
 
+// Get username input text
 func (d *dialog) GetUsernameText() string {
 	return d.username.Text
 }
 
+// Get password input text
 func (d *dialog) GetPasswordText() string {
 	return d.password.Text
 }

@@ -2,11 +2,9 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 
 	"fyne.io/fyne/app"
 
@@ -36,10 +34,7 @@ func main() {
 }
 
 func onExit() {
-	fmt.Println("Starting onExit")
-	now := time.Now()
-	ioutil.WriteFile(fmt.Sprintf(`on_exit_%d.txt`, now.UnixNano()), []byte(now.String()), 0644)
-	fmt.Println("Finished onExit")
+	fmt.Println("Destroying system stray...")
 }
 
 func onReady() {

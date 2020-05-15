@@ -65,8 +65,8 @@ func (s dbusT) User() (string, *dbus.Error) {
 	return s.inetkey.UserName, nil
 }
 
+// Run Dbus service
 func (d *dservice) Run() {
-
 	go func() {
 		conn, err := dbus.ConnectSessionBus()
 		if err != nil {

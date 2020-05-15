@@ -12,7 +12,7 @@ Version=1.0
 Terminal=false
 Exec=$GOPATH/src/github.com/unathi-skosana/gonetkey/cmd/gonetkey/gonetkey
 Name=Gonetkey
-Icon=$GOPATH/src/github.com/unathi-skosana/gonetkey/build/gonetkey.png
+Icon=$GOPATH/src/github.com/unathi-skosana/gonetkey/cmd/gonetkey/gonetkey.png
 Type=Application
 EOF
 
