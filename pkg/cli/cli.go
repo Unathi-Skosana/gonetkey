@@ -12,32 +12,18 @@ import (
 
 	"github.com/mkideal/cli"
 	"github.com/unathi-skosana/gonetkey/pkg/common"
+	"golang.org/x/crypto/ssh/terminal"
 )
 
 const reconnectionDelay = 10
 
+var password string = ""
+
 type argT struct {
 	cli.Helper
-	User     string `cli:"user"   usage:"Student number / Username"`
-	Password string `pw:"p,password" usage:"Password" prompt:"Password"`
-	Config   string `cli:"config" usage:"Loads username and/or password from file"`
-	Retries  string `cli:"retries" usage:"Number of connection retries (default=1)" dft:"1"`
-}
-
-func (argv *argT) Validate(ctx *cli.Context) error {
-	userName := argv.User
-	password := argv.Password
-	config := argv.Config
-
-	if strings.Compare(config, "") != 0 {
-		userName, password = common.LoadUserCredentials(config)
-	}
-
-	if strings.Compare(userName, "") == 0 || strings.Compare(password, "") == 0 {
-		return fmt.Errorf("Username or Password was not provided")
-	}
-
-	return nil
+	Config  string `cli:"config" usage:"Loads username and/or password from file"`
+	User    string `cli:"user"   usage:"Student number / Username"`
+	Retries string `cli:"retries" usage:"Number of connection retries (default=1)" dft:"1"`
 }
 
 func RunCmdClient() {
@@ -46,21 +32,27 @@ func RunCmdClient() {
 
 		argv := ctx.Argv().(*argT)
 
-		// student number
-		userName := argv.User
-
-		// password
-		password := argv.Password
-
 		// optional config file containing password and username
 		config := argv.Config
 
-		// number of retries
-		retries, _ := strconv.Atoi(argv.Retries)
+		userName := ""
+		password := ""
 
 		if strings.Compare(config, "") != 0 {
+			// loaded from config
 			userName, password = common.LoadUserCredentials(config)
+		} else {
+			// student number
+			userName = argv.User
+
+			// get password
+			fmt.Print("Password: ")
+			bytePassword, _ := terminal.ReadPassword(0)
+			password = string(bytePassword)
 		}
+
+		// number of retries
+		retries, _ := strconv.Atoi(argv.Retries)
 
 		inetkey := common.NewInetkey(userName, password)
 		retries_left := retries

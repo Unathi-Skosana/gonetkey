@@ -1,7 +1,7 @@
 package common
 
 import (
-	"encoding/base64"
+	"encoding/base32"
 	"fmt"
 	"log"
 	"strings"
@@ -103,14 +103,13 @@ func LoadUserCredentials(config string) (string, string) {
 	password = cfg.Section("config").Key("password").String()
 
 	if password != "" {
-		encodedPassword := base64.StdEncoding.EncodeToString([]byte(password))
+		encodedPassword := base32.StdEncoding.EncodeToString([]byte(strings.TrimSpace(password)))
 		cfg.Section("config").Key("encoded_password_b32").SetValue(encodedPassword)
 		cfg.Section("config").Key("password").SetValue("")
 		cfg.SaveTo(config)
 	} else {
 		encodedPassword := cfg.Section("config").Key("encoded_password_b32").String()
-		passwordBytes, err = base64.StdEncoding.DecodeString(encodedPassword)
-
+		passwordBytes, err = base32.StdEncoding.DecodeString(strings.TrimSpace(encodedPassword))
 		if err != nil {
 			log.Fatal("decode error:", err)
 		}
