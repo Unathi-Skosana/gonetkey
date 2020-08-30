@@ -8,30 +8,23 @@ University's firewall.
 ### CLI
 
 ```sh
-git clone https://github.com/unathi-skosana/gonetkey
-cd cmd/gonetkeycli
-go build
+go install github.com/unathi-skosana/gonetkey/cmd/gonetkeycli
 ./gonetkeycli -h
-```
-
-
-### GUI
-```sh
-git clone https://github.com/unathi-skosana/gonetkey
-cd cmd/gonetkey
-go build
-chmod +x ./build.sh
-./build.sh
-./gonetkey
 ```
 
 ### DBUS
 ```sh
-git clone https://github.com/unathi-skosana/gonetkey
-cd cmd/gonetkeyd
-go build
+go install github.com/unathi-skosana/gonetkey/cmd/gonetkeyd
 ./gonetkeyd -h
 ```
+
+### GUI
+```sh
+go install github.com/unathi-skosana/gonetkey/cmd/gonetkey
+./gonetkey
+```
+
+
 
 ## Credits
 * [getlantern/systray](https://github.com/getlantern/systray)
@@ -44,4 +37,3 @@ go build
 * [ ]  MacOS build
 * [ ]  Proper bundling of assets
 * [ ]  Makefile ?
-
