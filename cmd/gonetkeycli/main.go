@@ -9,7 +9,7 @@ import (
 	"syscall"
 
 	"github.com/mkideal/cli"
-	"github.com/unathi-skosana/gonetkey/pkg/common"
+	"github.com/unathi-skosana/gonetkey/internal/pkg/common"
 	"golang.org/x/crypto/ssh/terminal"
 )
 

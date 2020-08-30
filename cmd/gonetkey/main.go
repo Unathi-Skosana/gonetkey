@@ -10,15 +10,15 @@ import (
 
 	"github.com/getlantern/systray"
 	"github.com/godbus/dbus"
-	"github.com/unathi-skosana/gonetkey/pkg/common"
-	"github.com/unathi-skosana/gonetkey/pkg/dialog"
-	"github.com/unathi-skosana/gonetkey/pkg/dservice"
-	"github.com/unathi-skosana/gonetkey/pkg/icon"
+	"github.com/skratchdot/open-golang/open"
+	"github.com/unathi-skosana/gonetkey/internal/pkg/common"
+	"github.com/unathi-skosana/gonetkey/internal/pkg/dialog"
+	"github.com/unathi-skosana/gonetkey/internal/pkg/dservice"
+	"github.com/unathi-skosana/gonetkey/internal/pkg/icon"
 )
 
 func main() {
 	app := app.New()
-	app.SetIcon(icon.CitrusBitmap)
 
 	d := dialog.NewDialog()
 	d.Show(app)
@@ -43,7 +43,7 @@ func onReady() {
 
 	go func() {
 
-		conn, err := dbus.ConnectSessionBus()
+		conn, err := dbus.SessionBus()
 		if err != nil {
 			panic(err)
 		}
@@ -71,22 +71,24 @@ func onReady() {
 		mTariff := systray.AddMenuItem("Tariff", "Tariff")
 		mQuit := systray.AddMenuItem("Quit", "Quit")
 
-		var status bool
+		var status string
 
 		obj.Call(fmt.Sprintf("%s.Status", common.BusName), 0).Store(&status)
 
-		mOpen.Hide()
+		if status != "uninitialized" {
+			mOpen.Hide()
+		}
 
 		toggle := func() {
-			if status {
+			if status == "up" {
 				obj.Call(fmt.Sprintf("%s.Close", common.BusName), 0)
-				status = false
+				status = "down"
 				mClose.Hide()
 				mOpen.Show()
 
-			} else {
+			} else if status == "down" {
 				obj.Call(fmt.Sprintf("%s.Open", common.BusName), 0)
-				status = true
+				status = "up"
 				mClose.Show()
 				mOpen.Hide()
 			}
@@ -106,13 +108,13 @@ func onReady() {
 				mOpen.Show()
 			case <-mEdit.ClickedCh:
 				var home string = os.Getenv("HOME")
-				systray.ShowAppWindow(fmt.Sprintf("file://%s/.inetkeyrc", home))
+				open.Run(fmt.Sprintf("file://%s/.inetkeyrc", home))
 			case <-mAdmin.ClickedCh:
-				systray.ShowAppWindow("https://www.sun.ac.za/useradm")
+				open.Run("https://www.sun.ac.za/useradm")
 			case <-mUsage.ClickedCh:
-				systray.ShowAppWindow("https://maties2.sun.ac.za/fwusage/")
+				open.Run("https://maties2.sun.ac.za/fwusage/")
 			case <-mTariff.ClickedCh:
-				systray.ShowAppWindow("https://stbsp01.stb.sun.ac.za/innov/it/it-help/Wiki%20Pages/Internet%20Tariff%20Structure.aspx")
+				open.Run("https://stbsp01.stb.sun.ac.za/innov/it/it-help/Wiki%20Pages/Internet%20Tariff%20Structure.aspx")
 			case <-mQuit.ClickedCh:
 				obj.Call(fmt.Sprintf("%s.Close", common.BusName), 0)
 				systray.Quit()

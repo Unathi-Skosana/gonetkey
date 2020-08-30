@@ -8,7 +8,7 @@ import (
 
 	"github.com/godbus/dbus"
 	"github.com/mkideal/cli"
-	"github.com/unathi-skosana/gonetkey/pkg/common"
+	"github.com/unathi-skosana/gonetkey/internal/pkg/common"
 )
 
 type argT struct {
@@ -27,7 +27,7 @@ type argT struct {
 
 func main() {
 	os.Exit(cli.Run(new(argT), func(ctx *cli.Context) error {
-		conn, err := dbus.ConnectSessionBus()
+		conn, err := dbus.SessionBus()
 		if err != nil {
 			panic(err)
 		}
@@ -57,9 +57,9 @@ func main() {
 			obj.Call(fmt.Sprintf("%s.GetPID", common.BusName), 0).Store(&i)
 			fmt.Printf("PID: %d\n", i)
 		} else if status {
-			var b bool
-			obj.Call(fmt.Sprintf("%s.Status", common.BusName), 0).Store(&b)
-			fmt.Printf("Firewall status: %v\n", b)
+			var s string
+			obj.Call(fmt.Sprintf("%s.Status", common.BusName), 0).Store(&s)
+			fmt.Printf("Status: %v\n", s)
 		} else if jstatus {
 			var j []byte
 			var res *common.Reply
