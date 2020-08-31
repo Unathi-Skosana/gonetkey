@@ -47,6 +47,13 @@ func (d *dialog) Show(app fyne.App) {
 		app.Quit()
 	}))
 
+	d.window.Canvas().SetOnTypedKey(func(key *fyne.KeyEvent) {
+		switch key.Name {
+		case fyne.KeyReturn:
+			app.Quit()
+		}
+	})
+
 	d.window.SetContent(content)
 	d.window.Show()
 }

@@ -8,29 +8,34 @@ University's firewall.
 ### CLI
 
 ```sh
-go install github.com/unathi-skosana/gonetkey/cmd/gonetkeycli
+go get github.com/unathi-skosana/gonetkey/cmd/gonetkeycli
 ./gonetkeycli -h
 ```
 
 ### DBUS
 ```sh
-go install github.com/unathi-skosana/gonetkey/cmd/gonetkeyd
+go get github.com/unathi-skosana/gonetkey/cmd/gonetkeyd
 ./gonetkeyd -h
 ```
 
 ### GUI
 ```sh
-go install github.com/unathi-skosana/gonetkey/cmd/gonetkey
+go get github.com/unathi-skosana/gonetkey/cmd/gonetkey
 ./gonetkey
 ```
 
 
+## Dependencies
+- gtk3
+- libappindicator-gtk3
 
 ## Credits
 * [getlantern/systray](https://github.com/getlantern/systray)
 * [godbus/dbus](https://github.com/godbus/dbus)
 * [mkideal/cli](https://github.com/mkideal/cli)
 * [fyne.io/fyne](https://github.com/fyne-io/fyne)
+
+
 
 ## TODO
 
