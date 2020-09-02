@@ -16,7 +16,7 @@ const (
 	ObjectPath = "/za/ac/sun/gonetkey/system"
 )
 
-const ReconnectionDelay = 10
+const ReconnectionDelay = 100
 
 type InetKey struct {
 	UserName string
