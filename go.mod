@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	fyne.io/fyne v1.3.3
+	github.com/cratonica/2goarray v0.0.0-20190331194516-514510793eaa // indirect
 	github.com/getlantern/systray v1.0.4
 	github.com/go-ini/ini v1.60.2
 	github.com/godbus/dbus v4.1.0+incompatible

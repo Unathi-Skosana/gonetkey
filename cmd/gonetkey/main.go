@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"os/signal"
 	"syscall"
@@ -25,11 +26,12 @@ func main() {
 
 	app.Run()
 
+	retries := math.MaxInt64
 	inetkey := common.NewInetkey(d.GetUsernameText(), d.GetPasswordText())
 	service := dservice.NewDbusService(inetkey)
 
 	service.Run()
-	inetkey.Run(1)
+	inetkey.Run(retries)
 	systray.Run(onReady, onExit)
 }
 
@@ -52,7 +54,6 @@ func onReady() {
 
 		obj := conn.Object(common.BusName, common.ObjectPath)
 
-		systray.SetTemplateIcon(icon.TrayCitrus, icon.TrayCitrus)
 		systray.SetTitle("Goinetkey")
 		systray.SetTooltip("Goinetkey")
 
@@ -77,6 +78,12 @@ func onReady() {
 
 		if status != "uninitialized" {
 			mOpen.Hide()
+		}
+
+		if status == "up" {
+			systray.SetTemplateIcon(icon.TrayCitrus, icon.TrayCitrus)
+		} else {
+			systray.SetTemplateIcon(icon.TrayCitrusRed, icon.TrayCitrusRed)
 		}
 
 		toggle := func() {
